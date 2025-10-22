@@ -1,0 +1,123 @@
+<!DOCTYPE html><html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Herbolaria Práctica — Programa</title>
+  <style>
+    :root{
+      --bg: #f7f8f4;
+      --accent: #2f7a3e;
+      --card: #ffffff;
+      --muted: #6b6b6b;
+    }
+    body{font-family: Inter, system-ui, Arial, sans-serif; background: linear-gradient(180deg,#eef7ec 0%, #f7fbf8 100%); color:#163d2b; margin:0;}
+    header{background: radial-gradient(circle at 10% 10%, rgba(47,122,62,0.12), transparent 20%), var(--bg); padding:20px; display:flex; align-items:center; gap:12px; flex-wrap:wrap}
+    .logo{width:50px; height:50px; border-radius:12px; background:linear-gradient(135deg,#76b58a,#2f7a3e); display:flex; align-items:center; justify-content:center; color:white; font-weight:700; font-size:22px}
+    h1{margin:0; font-size:18px}
+    .sub{color:var(--muted); font-size:12px}main{padding:16px; display:grid; grid-template-columns:200px 1fr; gap:16px}
+.card{background:var(--card); border-radius:12px; box-shadow:0 4px 12px rgba(34,50,30,0.06); padding:12px; margin-bottom:16px}
+.sidebar{position:sticky; top:10px; align-self:start; height:max-content}
+.sidebar nav{display:flex; flex-direction:column; gap:6px}
+.nav-item{padding:6px 8px; border-radius:8px; cursor:pointer; font-size:14px}
+.nav-item:hover{background:linear-gradient(90deg,rgba(47,122,62,0.06),transparent)}
+.content h2{margin-top:0}
+.grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:10px}
+.btn{display:inline-block; padding:6px 10px; background:var(--accent); color:white; border-radius:6px; text-decoration:none; font-size:14px}
+footer{padding:12px; text-align:center; color:var(--muted); font-size:12px}
+a{color:var(--accent)}
+@media (max-width:900px){main{grid-template-columns:1fr} .sidebar{position:relative; top:auto; margin-bottom:16px}}
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">HB</div>
+    <div style="flex:1">
+      <h1>Herbolaria Práctica</h1>
+      <div class="sub">Guía y herramientas para identificar, usar y documentar plantas medicinales</div>
+    </div>
+  </header>  <main>
+    <aside class="sidebar">
+      <div class="card">
+        <h3 style="font-size:16px; margin-bottom:8px;">Menú Rápido</h3>
+        <nav>
+          <div class="nav-item" onclick="showSection('overview')">Introducción</div>
+          <div class="nav-item" onclick="showSection('identificacion')">Identificación</div>
+          <div class="nav-item" onclick="showSection('usos')">Usos y Preparaciones</div>
+          <div class="nav-item" onclick="showSection('seguridad')">Seguridad</div>
+          <div class="nav-item" onclick="showSection('historia')">Historia</div>
+          <div class="nav-item" onclick="showSection('plantas')">Plantas Destacadas</div>
+          <div class="nav-item" onclick="showSection('paec')">PAEC</div>
+          <div class="nav-item" onclick="showSection('adjuntar')">PDF / Canva</div>
+        </nav>
+      </div>
+    </aside><section class="content">
+  <div id="overview" class="card section">
+    <h2>Introducción a la herbolaria</h2>
+    <p>La herbolaria es la práctica de usar plantas con fines terapéuticos, basada en la tradición y la investigación científica. Esta guía cubre la identificación, preparación, uso y seguridad de distintas plantas medicinales.</p>
+  </div>
+
+  <div id="identificacion" class="card section" style="display:none">
+    <h2>Identificación de plantas</h2>
+    <ul>
+      <li>Forma de la hoja (simple o compuesta)</li>
+      <li>Tipo de nervadura y margen</li>
+      <li>Flor (número de pétalos, color, disposición)</li>
+      <li>Hábitat y época de floración</li>
+      <li>Olor y textura de tallos y hojas</li>
+    </ul>
+  </div>
+
+  <div id="usos" class="card section" style="display:none">
+    <h2>Usos y preparaciones reales</h2>
+    <div class="grid">
+      <div class="card"><h4>Infusión de Manzanilla</h4><p>Usos: digestión, ansiedad leve y sueño. Preparación: 1 cucharadita de flores secas por taza de agua caliente, infusionar 5-10 min. Dosis: 1-2 tazas al día. Contraindicaciones: alergia a Asteraceae.</p></div>
+      <div class="card"><h4>Gel de Aloe</h4><p>Usos: cicatrización de quemaduras leves y cuidado de piel. Preparación: aplicar gel directamente sobre la piel limpia. No ingerir el látex amarillo sin purificar.</p></div>
+      <div class="card"><h4>Tintura de Equinácea</h4><p>Usos: fortalecer defensas. Preparación: macerar planta fresca en alcohol 40% (1:5) durante 2 semanas. Dosis: 20-30 gotas, 2 veces al día en adultos. Contraindicaciones: no usar en personas con enfermedades autoinmunes o tratamientos inmunosupresores.</p></div>
+    </div>
+  </div>
+
+  <div id="seguridad" class="card section" style="display:none">
+    <h2>Seguridad y contraindicaciones</h2>
+    <p>Verifica siempre interacción con medicamentos, condiciones especiales (embarazo, lactancia, alergias) y dosis adecuadas. Consulta con un profesional de salud antes de aplicar tratamientos. Nunca reemplazar tratamientos médicos prescritos por herbolaria.</p>
+  </div>
+
+  <div id="historia" class="card section" style="display:none">
+    <h2>Historia de la herbolaria</h2>
+    <p>La herbolaria se remonta a civilizaciones antiguas como la egipcia, china, india y mesoamericana. Desde remedios tradicionales hasta la base de medicamentos modernos, la relación del ser humano con las plantas medicinales ha sido fundamental para la salud y la cultura.</p>
+  </div>
+
+  <div id="plantas" class="card section" style="display:none">
+    <h2>Plantas destacadas</h2>
+    <div class="grid">
+      <div class="card"><h4>Manzanilla</h4><p>Digestivo, calmante, mejora sueño.</p></div>
+      <div class="card"><h4>Aloe Vera</h4><p>Cicatrización, cuidado de piel y cabello.</p></div>
+      <div class="card"><h4>Equinácea</h4><p>Fortalece defensas, reduce síntomas de resfriado.</p></div>
+      <div class="card"><h4>Tomillo</h4><p>Antiséptico, digestivo, ayuda en resfriados leves.</p></div>
+    </div>
+  </div>
+
+  <div id="paec" class="card section" style="display:none">
+    <h2>PAEC (Programa de Apoyo a la Educación Comunitaria)</h2>
+    <p>El PAEC busca integrar la educación sobre plantas medicinales en la comunidad, promoviendo capacitación, huertos comunitarios y difusión de conocimientos.</p>
+  </div>
+
+  <div id="adjuntar" class="card section" style="display:none">
+    <h2>PDF o Canva</h2>
+    <p>Puedes descargar el PDF o visitar tu diseño en Canva:</p>
+    <a href="herbolaria_guia.pdf" download class="btn">Descargar PDF</a>
+    <a href="https://www.canva.com/design/DAG0nEi4ZRY/syzWaZQqDNjExxcqevFgVQ/edit?utm_content=DAG0nEi4ZRY&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank" class="btn">Abrir Canva</a>
+  </div>
+
+</section>
+
+  </main>  <footer>
+    <small>Programa creado para fines educativos. No sustituye atención médica profesional.</small>
+  </footer>  <script>
+    function showSection(id){
+      document.querySelectorAll('.section').forEach(s=>s.style.display='none');
+      document.getElementById(id).style.display='block';
+      window.scrollTo({top:0,behavior:'smooth'});
+    }
+  </script></body>
+</html>
